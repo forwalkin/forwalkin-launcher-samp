@@ -1,54 +1,46 @@
-// Importa os módulos necessários do Electron
-const { app, BrowserWindow, ipcMain, dialog } = require("electron");
-
-// Importa o módulo 'path' para manipulação de caminhos de arquivos
-const path = require("path");
-
-// Importa o módulo 'fs' para manipulação de arquivos
+const { app, BrowserWindow, ipcMain, dialog } = require("electron"); 
+const path = require("path"); 
 const fs = require("fs");
 
-// Importa o 'spawn' para executar processos externos (como o samp.exe)
-const { spawn } = require("child_process");
 
-// Importa o módulo 'samp-query' para consultar informações de servidores SA-MP
+const { spawn } = require("child_process");
 const query = require("samp-query");
 
-// Define o caminho do arquivo de configuração do launcher
+
 let configPath = path.join(__dirname, "config.json");
 
-// Verifica se o arquivo de configuração existe, se não, cria um com valor padrão
+
 if (!fs.existsSync(configPath)) {
   fs.writeFileSync(configPath, JSON.stringify({ gtaPath: "" }, null, 2));
 }
 
-// Função para criar a janela principal do Electron
+
 function createWindow() {
   const win = new BrowserWindow({
-    width: 1000,               // Largura da janela
-    height: 800,               // Altura da janela
-    resizable: false,          // Impede redimensionamento
+    width: 1000,               
+    height: 800,               
+    resizable: false,          
     webPreferences: {
-      preload: path.join(__dirname, "preload.js") // Arquivo preload para comunicação entre renderer e main
+      preload: path.join(__dirname, "preload.js") 
     }
   });
 
-  // Carrega o arquivo HTML principal na janela
+ 
   win.loadFile(path.join(__dirname, "../renderer/index.html"));
 }
 
-// Cria a janela quando o app estiver pronto
+
 app.whenReady().then(() => {
   createWindow();
 });
 
 // Handler para selecionar a pasta do GTA
 ipcMain.handle("selectGTAPath", async () => {
-  // Abre um diálogo para o usuário escolher uma pasta
+  // Abre um dialogo para o usuário escolher uma pasta
   const result = await dialog.showOpenDialog({
     properties: ["openDirectory"]
   });
 
-  // Se o usuário cancelar, retorna null
   if (result.canceled) return null;
 
   // Pega o caminho da pasta selecionada
@@ -87,7 +79,6 @@ ipcMain.handle("connectServer", (event, { ip, port }) => {
     return { error: "samp.exe não encontrado na pasta configurada!" };
   }
 
-  // Executa o samp.exe com o argumento IP:PORT
   spawn(exe, [`${ip}:${port}`], { cwd: cfg.gtaPath });
   return { ok: true };
 });
@@ -100,10 +91,10 @@ ipcMain.handle("queryServer", async (event, { ip, port }) => {
         resolve({ online: false }); // Servidor offline ou erro
       } else {
         resolve({
-          online: true,                    // Servidor online
-          hostname: response.hostname,     // Nome do servidor
-          players: response.online,        // Jogadores online
-          maxplayers: response.maxplayers  // Máximo de jogadores
+          online: true,                    
+          hostname: response.hostname,     
+          players: response.online,        
+          maxplayers: response.maxplayers  
         });
       }
     });
