@@ -9,11 +9,7 @@ Um launcher simples e funcional para **SA-MP**, desenvolvido em Electron.
 
 ## Como usar
 
-1. Clone este repositório:
-
-```bash
-git clone https://github.com/seu-usuario/nlcanal-launcher.git
-```
+1. Clone este repositório
 
 2. Instale as dependências:
 
