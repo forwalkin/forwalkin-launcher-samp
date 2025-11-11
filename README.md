@@ -2,11 +2,6 @@
 
 Um launcher simples e funcional para **SA-MP**, desenvolvido em Electron.
 
-## Funcionalidades
-
-* Atualizar a lista de servidores
-* Ver status de cada servidor (online/offline)
-
 ## Como usar
 
 1. Clone este repositório
