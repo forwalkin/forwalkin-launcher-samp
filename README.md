@@ -9,7 +9,6 @@ Um launcher simples e funcional para **SA-MP**, desenvolvido em Electron.
 2. Instale as dependências:
 
 ```bash
-npm install
 npm install electron
 npm install samp-query
 ```
