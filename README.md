@@ -11,7 +11,7 @@ npm install electron
 npm install samp-query
 ```
 
-3. Inicialize o `package.json` e edite para ficar assim:
+3. edite o `package.json`:
 
 ```bash
 npm init -y
