@@ -31,7 +31,7 @@ npm install samp-query
 }
 ```
 
-4. Inicie o launcher:
+3. Inicie o launcher:
 
 ```bash
 npm start
