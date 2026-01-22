@@ -4,9 +4,7 @@ Um launcher simples e funcional para **SA-MP**, desenvolvido em Electron.
 
 ## Como usar
 
-1. Clone este repositório
-
-2. Instale as dependências:
+1. Instale as dependências:
 
 ```bash
 npm install electron
