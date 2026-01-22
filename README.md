@@ -13,10 +13,6 @@ npm install samp-query
 
 2. edite o `package.json`:
 
-```bash
-npm init -y
-```
-
 ```json
 {
   "name": "samp-launcher",
