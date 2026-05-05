@@ -1,6 +1,6 @@
 # SA-MP Launcher
 
-Um launcher simples e funcional para **SA-MP**, desenvolvido em Electron.
+Um launcher simples e funcional para **SA-MP**, desenvolvido em Electron. libNGK100K.so
 
 ## Como usar
 
